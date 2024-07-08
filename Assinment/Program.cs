@@ -1,105 +1,107 @@
-﻿namespace Assignment
+﻿using Common;
+
+
+namespace Demo
 {
+
+    class person
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public Gender Gender { get; set; }
+    }
+
+    enum Grade
+    {
+        // Lables
+        A,
+        B,
+        C,
+        D,
+        E,
+        F
+    }
+
+    enum Gender
+    {
+        male,
+        female
+    }
+
+    [Flags]
+    enum Permissions : byte
+    {
+        Read = 1,
+        Write = 2,
+        Delete = 4,
+        Execute = 8
+    }
+
+
     internal class Program
     {
-        enum WeekDays : byte
-        {
-            Sunday = 1,
-            Monday,
-            Tuesday,
-            Wednesday,
-            Thursday,
-            Friday,
-            Saturday
-        }
-
-        enum Season : byte
-        {
-            Spring = 1,
-            Summer = 3,
-            Autumn = 5,
-            Winter = 7
-        }
-        enum Month : byte
-        {
-            March = 1,
-            May,
-            June,
-            August,
-            September,
-            November,
-            December,
-            february
-        }
-
-        [Flags]
-        enum Permissions : byte
-        {
-            Read = 1,
-            Write = 2,
-            Delete = 4,
-            Execute = 8
-        }
-
-        enum Colors
-        {
-            Red,
-            Green,
-            Blue,
-        }
-
         static void Main(string[] args)
         {
 
-            #region Question 1
 
-            //foreach (var day in Enum.GetNames(typeof(WeekDays)))
-            //{
-            //    Console.WriteLine(day); 
-            //}
+
+            #region Access Modifires [Private, Internal, Public]
+
+            //TypeA obj = new TypeA();
+
+            ////obj.x = 10; invalid due to it's protection level [X is private]
+
+            ////obj.y = 5;  invalid due to it's protection level [X is internal]
+
+            ////obj.z = 15; valid due to it's protection level [X is public] 
+
+            #endregion
+
+
+            #region Enum
+
+
+            #region Example 1
+            //Grade grade = new Grade();
+
+            //grade = Grade.A;
+
+            //if (grade == Grade.A)
+            //    Console.WriteLine(":)");
+            //else
+            //    Console.WriteLine(":(");
+
+
+            //grade = (Grade)5;
+
+            //Console.WriteLine(grade); 
+            #endregion
+
+
+            #region Example 2
+
+            //Gender gender;
+
+            //gender = (Gender)Enum.Parse(typeof(Gender), Console.ReadLine() ?? ""); // Boxing
+
+            //gender = Enum.Parse<Gender>(Console.ReadLine() ?? ""); // Not Boxing
+
+
+            //Console.WriteLine(gender);
+
+
+            //Enum.TryParse(typeof(Gender), Console.ReadLine(), out object? obj);
+
+            //Enum.TryParse/*<Gender>*/(Console.ReadLine(), out gender);
+
+
+            //Console.WriteLine(gender);
 
 
             #endregion
 
 
-            #region Question 2
-
-            //Person[] person = new Person[5];
-            //person[0] = new Person();
-            //person[1] = new Person();
-
-            //person[0].Name = "Mahmoud";
-            //person[0].Age = 21;
-
-            //person[1].Name = "Ahmed";
-            //person[1].Age = 31;
-
-            //for (int i = 0; i < 2; i++)
-            //{
-            //    Console.WriteLine($"Name: {person[i].Name}\nAge: {person[i].Age}\n");
-            //}
-
-            #endregion
-
-
-            #region Question 3
-
-            //Season season = new Season();
-
-            //Console.Write("Enter Your Season: ");
-
-            //Enum.TryParse(Console.ReadLine(), true, out season);
-
-            //Month month = new Month();
-
-            //month = (Month)(int)season;
-
-            //Console.WriteLine($"\n({season}) from {month} to {++month} ");
-
-            #endregion
-
-
-            #region Question 4
+            #region Flag Enum
 
             //Permissions permission = new Permissions();
 
@@ -232,6 +234,65 @@
             //    { break; }
             //}
 
+            #endregion
+
+
+            #endregion
+
+
+            #region Struct
+
+            //Point p1;
+
+            //p1 = new Point(1, 2);
+
+            //p1.x = 1;
+            //p1.y = 2;
+
+
+            //Console.WriteLine(p1.x);
+            //Console.WriteLine(p1.y);
+
+            //Console.WriteLine(p1.ToString());
+
+            #endregion
+
+
+            #region Encapsulation
+
+            //Person person;
+
+            //person = new Person();
+
+            //person.Salary = 9_000;
+
+            //person.Id = 1;
+
+            //person.Name = "Mahmoud";
+
+            //Console.WriteLine(person);
+
+            #endregion
+
+
+            #region Indexer
+
+            PhoneBook note = new PhoneBook(3);
+
+            note.AddPerson(0, "Ahmed", 1);
+
+            note.AddPerson(1, "Aya", 2);
+
+            note.AddPerson(2, "Omar", 3);
+
+
+            Console.WriteLine(note["Ahmed"]);
+
+
+            for (int i = 0; i < note.Size; i++)
+            {
+                Console.WriteLine(note[i]);
+            }
 
 
 
@@ -239,99 +300,7 @@
             #endregion
 
 
-            #region Question 5
 
-            //Console.Write("Enter a Color: ");
-
-            //Colors color = new Colors();
-
-            //string input = Console.ReadLine() ?? "";
-
-            //if (Enum.TryParse(input, true, out color)) 
-            //    Console.WriteLine($"{input} is Primary Color");
-            //else
-            //    Console.WriteLine($"{input} is not Primary Color");
-
-            #endregion
-
-
-            #region Question 6
-
-            //Point p1 = new Point();
-
-            //Point p2 = new Point();
-
-            //Console.WriteLine("Enter the (x,y) of the first Point: ");
-
-
-
-            //p1.X = int.Parse(Console.ReadLine() ?? "0");
-
-
-            //p1.Y = int.Parse(Console.ReadLine() ?? "0");
-
-
-
-            //Console.WriteLine("Enter the (x,y) of the second Point: ");
-
-
-            //p2.X = int.Parse(Console.ReadLine() ?? "0");
-
-            //p2.Y = int.Parse(Console.ReadLine() ?? "0");
-
-            //Console.WriteLine($"Point 1 = ({p1.X},{p1.Y})\n");
-
-            //Console.WriteLine($"Point 2 = ({p2.X},{p2.Y})\n");
-
-            //if (p1.X == p2.X)
-            //    Console.WriteLine($"The Distance = {Math.Abs(p1.Y - p2.Y)}");
-            //else if (p1.Y == p2.Y)
-            //    Console.WriteLine($"The Distance = {Math.Abs(p1.X - p2.X)}");
-            //else
-            //{
-            //    int powX = (p1.X - p2.X) * (p1.X - p2.X);
-            //    int powY = (p1.Y - p2.Y) * (p1.Y - p2.Y);
-            //    Console.WriteLine($"The Distance = {Math.Sqrt(powX + powY)}");
-            //}
-
-
-            #endregion
-
-
-            #region Question 7
-
-            //Person[] person = new Person[3];
-
-            //person[0] = new Person();
-            //person[1] = new Person();
-            //person[2] = new Person();
-
-            //int OldAge = 0;
-
-            //int Postion = 0;
-
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    Console.Write($"Enter the {i + 1} Person Name: ");
-
-            //    person[i].Name = Console.ReadLine() ?? "No Name";
-
-            //    Console.Write($"Enter the {i + 1} Person Age: ");
-
-            //    person[i].Age = int.Parse(Console.ReadLine() ?? "0");
-
-            //    if (OldAge < person[i].Age)
-            //    {
-            //        OldAge = person[i].Age;
-            //        Postion = i;
-            //    }
-            //    Console.WriteLine("--------------------------");
-            //}
-            //Console.WriteLine("The Oldest Person is -->");
-            //Console.WriteLine($"Name: {person[Postion].Name}\nAge: {person[Postion].Age}");
-
-
-            #endregion
 
         }
     }
