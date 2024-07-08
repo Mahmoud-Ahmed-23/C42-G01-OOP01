@@ -55,7 +55,7 @@
 
             //foreach (var day in Enum.GetNames(typeof(WeekDays)))
             //{
-            //    Console.WriteLine(day); 
+            //    Console.WriteLine(day);
             //}
 
 
@@ -232,10 +232,6 @@
             //    { break; }
             //}
 
-
-
-
-
             #endregion
 
 
@@ -247,7 +243,7 @@
 
             //string input = Console.ReadLine() ?? "";
 
-            //if (Enum.TryParse(input, true, out color)) 
+            //if (Enum.TryParse(input, true, out color))
             //    Console.WriteLine($"{input} is Primary Color");
             //else
             //    Console.WriteLine($"{input} is not Primary Color");
@@ -300,38 +296,39 @@
 
             #region Question 7
 
-            //Person[] person = new Person[3];
+            Person[] person = new Person[3];
 
-            //person[0] = new Person();
-            //person[1] = new Person();
-            //person[2] = new Person();
+            person[0] = new Person();
+            person[1] = new Person();
+            person[2] = new Person();
 
-            //int OldAge = 0;
+            int OldAge = 0;
 
-            //int Postion = 0;
+            int Postion = 0;
 
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    Console.Write($"Enter the {i + 1} Person Name: ");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write($"Enter the {i + 1} Person Name: ");
 
-            //    person[i].Name = Console.ReadLine() ?? "No Name";
+                person[i].Name = Console.ReadLine() ?? "No Name";
 
-            //    Console.Write($"Enter the {i + 1} Person Age: ");
+                Console.Write($"Enter the {i + 1} Person Age: ");
 
-            //    person[i].Age = int.Parse(Console.ReadLine() ?? "0");
+                person[i].Age = int.Parse(Console.ReadLine() ?? "0");
 
-            //    if (OldAge < person[i].Age)
-            //    {
-            //        OldAge = person[i].Age;
-            //        Postion = i;
-            //    }
-            //    Console.WriteLine("--------------------------");
-            //}
-            //Console.WriteLine("The Oldest Person is -->");
-            //Console.WriteLine($"Name: {person[Postion].Name}\nAge: {person[Postion].Age}");
+                if (OldAge < person[i].Age)
+                {
+                    OldAge = person[i].Age;
+                    Postion = i;
+                }
+                Console.WriteLine("--------------------------");
+            }
+            Console.WriteLine("The Oldest Person is -->");
+            Console.WriteLine($"Name: {person[Postion].Name}\nAge: {person[Postion].Age}");
 
 
             #endregion
+
 
         }
     }
