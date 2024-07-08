@@ -64,20 +64,37 @@
 
             #region Question 2
 
-            Person[] person = new Person[5];
-            person[0] = new Person();
-            person[1] = new Person();
+            //Person[] person = new Person[5];
+            //person[0] = new Person();
+            //person[1] = new Person();
 
-            person[0].Name = "Mahmoud";
-            person[0].Age = 21;
+            //person[0].Name = "Mahmoud";
+            //person[0].Age = 21;
 
-            person[1].Name = "Ahmed";
-            person[1].Age = 31;
+            //person[1].Name = "Ahmed";
+            //person[1].Age = 31;
 
-            for (int i = 0; i < 2; i++)
-            {
-                Console.WriteLine($"Name: {person[i].Name}\nAge: {person[i].Age}\n");
-            }
+            //for (int i = 0; i < 2; i++)
+            //{
+            //    Console.WriteLine($"Name: {person[i].Name}\nAge: {person[i].Age}\n");
+            //}
+
+            #endregion
+
+
+            #region Question 3
+
+            Season season = new Season();
+
+            Console.Write("Enter Your Season: ");
+
+            Enum.TryParse(Console.ReadLine(), true, out season);
+
+            Month month = new Month();
+
+            month = (Month)(int)season;
+
+            Console.WriteLine($"\n({season}) from {month} to {++month} ");
 
             #endregion
 
