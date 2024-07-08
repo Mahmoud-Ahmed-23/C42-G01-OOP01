@@ -53,16 +53,33 @@
 
             #region Question 1
 
-            foreach (var day in Enum.GetNames(typeof(WeekDays)))
-            {
-                Console.WriteLine(day);
-            }
+            //foreach (var day in Enum.GetNames(typeof(WeekDays)))
+            //{
+            //    Console.WriteLine(day);
+            //}
 
 
             #endregion
 
 
+            #region Question 2
 
+            Person[] person = new Person[5];
+            person[0] = new Person();
+            person[1] = new Person();
+
+            person[0].Name = "Mahmoud";
+            person[0].Age = 21;
+
+            person[1].Name = "Ahmed";
+            person[1].Age = 31;
+
+            for (int i = 0; i < 2; i++)
+            {
+                Console.WriteLine($"Name: {person[i].Name}\nAge: {person[i].Age}\n");
+            }
+
+            #endregion
 
         }
     }
