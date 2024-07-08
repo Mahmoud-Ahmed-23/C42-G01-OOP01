@@ -237,21 +237,61 @@
 
             #region Question 5
 
-            Console.Write("Enter a Color: ");
+            //Console.Write("Enter a Color: ");
 
-            Colors color = new Colors();
+            //Colors color = new Colors();
 
-            string input = Console.ReadLine() ?? "";
+            //string input = Console.ReadLine() ?? "";
 
-            if (Enum.TryParse(input, true, out color))
-                Console.WriteLine($"{input} is Primary Color");
-            else
-                Console.WriteLine($"{input} is not Primary Color");
+            //if (Enum.TryParse(input, true, out color))
+            //    Console.WriteLine($"{input} is Primary Color");
+            //else
+            //    Console.WriteLine($"{input} is not Primary Color");
 
             #endregion
 
 
+            #region Question 6
 
+            Point p1 = new Point();
+
+            Point p2 = new Point();
+
+            Console.WriteLine("Enter the (x,y) of the first Point: ");
+
+
+
+            p1.X = int.Parse(Console.ReadLine() ?? "0");
+
+
+            p1.Y = int.Parse(Console.ReadLine() ?? "0");
+
+
+
+            Console.WriteLine("Enter the (x,y) of the second Point: ");
+
+
+            p2.X = int.Parse(Console.ReadLine() ?? "0");
+
+            p2.Y = int.Parse(Console.ReadLine() ?? "0");
+
+            Console.WriteLine($"Point 1 = ({p1.X},{p1.Y})\n");
+
+            Console.WriteLine($"Point 2 = ({p2.X},{p2.Y})\n");
+
+            if (p1.X == p2.X)
+                Console.WriteLine($"The Distance = {Math.Abs(p1.Y - p2.Y)}");
+            else if (p1.Y == p2.Y)
+                Console.WriteLine($"The Distance = {Math.Abs(p1.X - p2.X)}");
+            else
+            {
+                int powX = (p1.X - p2.X) * (p1.X - p2.X);
+                int powY = (p1.Y - p2.Y) * (p1.Y - p2.Y);
+                Console.WriteLine($"The Distance = {Math.Sqrt(powX + powY)}");
+            }
+
+
+            #endregion
 
 
 
